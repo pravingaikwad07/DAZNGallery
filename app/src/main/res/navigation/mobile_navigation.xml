@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_image_grid">
+
+    <fragment
+        android:id="@+id/navigation_image_grid"
+        android:name="com.pravin.dazngallery.ui.home.HomeFragment"
+        android:label="@string/title_gallery"
+        tools:layout="@layout/fragment_details">
+        <action
+            android:id="@+id/action_navigation_image_grid_to_navigation_image_details"
+            app:destination="@id/navigation_image_details" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_image_details"
+        android:name="com.pravin.dazngallery.ui.details.ImageDetailsFragment"
+        android:label="@string/title_details"
+        tools:layout="@layout/fragment_dashboard" >
+        <argument
+            android:name="images"
+            app:argType="com.pravin.dazngallery.domain.model.Gallery[]" />
+        <argument
+            android:name="currentPosition"
+            app:argType="integer" />
+    </fragment>
+
+</navigation>
